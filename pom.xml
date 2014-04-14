@@ -4,10 +4,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.samples.spring</groupId>
-	<artifactId>spring-hibernate-utility</artifactId>
+	<artifactId>MyXMLHibernateProject</artifactId>
 	<version>1.0.0.CI-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>Spring Hibernate Utility</name>
+	<name>MyXMLHibernateProject</name>
 
 	<properties>		
 		<hibernate.version>3.6.10.Final</hibernate.version>
