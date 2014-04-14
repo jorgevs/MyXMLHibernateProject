@@ -1,6 +1,9 @@
 /target
+/target/*
 /.git
+/.git/*
 /.settings
+/.settings/*
 .classpath
 .project
 .springBeans

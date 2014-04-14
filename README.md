@@ -1,6 +1,6 @@
-# MyHibernateProject Sample application
+# MyXMLHibernateProject Sample application
 
-This is a basic but functional layout of an Standalone Java Application, using: Hibernate, Maven, SpringCore and jUnit
+This is a basic but functional layout of an Java Standalone Application using: Hibernate and Maven
 
 ## Working with the application
 
@@ -14,7 +14,7 @@ The following items should be installed in your system:
 
 1) In the command line
 ```
-git clone https://github.com/jorgevs/MyHibernateProject.git
+git clone https://github.com/jorgevs/MyXMLHibernateProject.git
 ```
 2) Inside Eclipse
 ```
