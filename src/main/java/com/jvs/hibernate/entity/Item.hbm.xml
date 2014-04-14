@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated Mar 13, 2014 10:09:41 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jvs.hibernate.entity.Item" table="ITEMS">
+    
+        <id name="itemId" type="java.lang.Long">
+            <column name="ITEM_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="productName" type="java.lang.String">
+            <column name="PRODUCT_NAME" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="PRICE" />
+        </property>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="QUANTITY" />
+        </property>
+        
+        <many-to-one name="order" class="com.jvs.hibernate.entity.Order">
+            <column name="ORDER_ID" />
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>
