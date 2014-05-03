@@ -1,6 +1,5 @@
 package com.jvs.hibernate.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,7 +28,7 @@ public class Order {
 
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	@JoinColumn(name="ORDER_ID")
-	private List<Item> items = new ArrayList<Item>();
+	private List<Item> items;
 	//--------------------------------------------------------------------------	
 	
 	public Order(){}
@@ -65,7 +64,19 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", customerName=" + customerName + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Order [orderId=");
+		builder.append(orderId);
+		builder.append(", customerName=");
+		builder.append(customerName);
+		builder.append(", items=");
+		if(items != null){
+			for (Item item : items) {
+				builder.append(item.toString() + "-");
+			}			
+		}
+		builder.append("]");
+		return builder.toString();
 	}
 
 }

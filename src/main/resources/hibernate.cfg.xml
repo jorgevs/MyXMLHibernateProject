@@ -7,30 +7,31 @@
 	<session-factory>
 	
 		<!-- properties -->
-		<property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
-		<!--property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property-->		
-		<property name="hibernate.connection.password">hibernatepwd</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernateTestdb</property>		                                          
+		<!--property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property-->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+				
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernatedb</property>		                                          
 		<property name="hibernate.connection.username">hibernateuser</property>
+		<property name="hibernate.connection.password">hibernatepwd</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
-		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.show_sql">true</property>
 		<!--property name="hibernate.connection.pool_size">10</property-->
-		<!--property name="hibernate.connection.autocommit">true</property-->
+		<!--property name="hibernate.connection.autocommit">false</property-->
 		
 		<!-- Enable Hibernate's automatic session context management -->
     	<property name="current_session_context_class">thread</property>
 				
-		<!--property name="hibernate.use_sql_comments">true</property-->
-		<!--property name="hibernate.format_sql">true</property-->
-		<property name="hibernate.hbm2ddl.auto">update</property>
-		<!--property name="hibernate.transaction.auto_close_session">true</property -->
+		<property name="hibernate.use_sql_comments">true</property>
+		<property name="hibernate.format_sql">false</property>
+		<!--property name="hibernate.hbm2ddl.auto">validate</property-->
+		<!--property name="hibernate.transaction.auto_close_session">true</property-->
 
 		<!-- mapping files -->
-		<!--mapping class="com.jvs.hibernate.entity.Item"  /-->
-		<!--mapping class="com.jvs.hibernate.entity.Order" /-->
+		<mapping class="com.jvs.hibernate.entity.Item"  />
+		<mapping class="com.jvs.hibernate.entity.Order" />
 		
-		<mapping resource="com/jvs/hibernate/entity/Item.hbm.xml" />
-		<mapping resource="com/jvs/hibernate/entity/Order.hbm.xml"/>
+		<!--mapping resource="com/jvs/hibernate/entity/Item.hbm.xml" /-->
+		<!--mapping resource="com/jvs/hibernate/entity/Order.hbm.xml"/-->
 		
 	</session-factory>
 </hibernate-configuration>

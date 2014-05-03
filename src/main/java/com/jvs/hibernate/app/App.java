@@ -1,5 +1,6 @@
 package com.jvs.hibernate.app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -15,30 +16,38 @@ public class App {
 	
 	
 	public static void main(String[] args) {
+		
+		Order order = new Order("JORGE VAZQUEZ");		
+		Item item = new Item("Cajas");
+		item.setPrice(15.22d);				
+		Item item2 = new Item("Hojas");
+		item2.setPrice(33.31d);
+		Item item3 = new Item("Relojes");
+		item3.setPrice(12.11d);
+		Item item4 = new Item("Diurex");
+		item4.setPrice(9.11d);		
+		
+		List<Item> listItems = new ArrayList<Item>();
+		listItems.add(item);
+		listItems.add(item2);
+		listItems.add(item3);		
+		order.setItems(listItems);
+		
+		
 		Session session = HibernateUtil.getSession();
 		HibernateUtil.beginTransaction();
 		
-		Order order = new Order("JORGE VAZQUEZ");		
-				
-		Item item = new Item("Cajas");
-		item.setPrice(15.22d);		
-		
-		Item item2 = new Item("Hojas");
-		item2.setPrice(33.31d);
-		
-		Item item3 = new Item("Relojes");
-		item3.setPrice(12.11d);
-		
-		List<Item> listItem = order.getItems();
-		listItem.add(item);
-		listItem.add(item2);
-		listItem.add(item3);
-		
 		session.save(order);
+		
+		Order order1 = (Order)session.get(Order.class, 1L);
+		System.out.println("Retrieved object: " + order1.toString());
+		
+		order1.setCustomerName("Updated");
 		
 		HibernateUtil.commitTransaction();
 		HibernateUtil.closeSession();
 		
+		/*
 		logger.info("----------------------------------------------------------");
 		
 		printRelationship_OrderItems();
@@ -48,10 +57,14 @@ public class App {
 		printRelationship_ItemOrder();
 		
 		logger.info("----------------------------------------------------------");
+		*/
 	}
 
+	/**
+	 * 
+	 */
 	public static void printRelationship_OrderItems(){
-		Session session = HibernateUtil.getSession();
+		Session session = HibernateUtil.getSession();		
 		HibernateUtil.beginTransaction();
 		
 		List<Order> orderList = session.createQuery("FROM Order").list();
@@ -67,6 +80,9 @@ public class App {
 		HibernateUtil.closeSession();
 	}
 	
+	/**
+	 * 
+	 */
 	public static void printRelationship_ItemOrder(){
 		Session session = HibernateUtil.getSession();
 		HibernateUtil.beginTransaction();
@@ -81,5 +97,6 @@ public class App {
 		HibernateUtil.commitTransaction();
 		HibernateUtil.closeSession();
 	}	
+	
 	
 }
