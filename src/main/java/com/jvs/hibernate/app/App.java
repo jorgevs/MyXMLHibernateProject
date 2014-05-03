@@ -18,7 +18,7 @@ public class App {
 		Session session = HibernateUtil.getSession();
 		HibernateUtil.beginTransaction();
 		
-		Order order = new Order("SILVIA VAZQUEZ");		
+		Order order = new Order("JORGE VAZQUEZ");		
 				
 		Item item = new Item("Cajas");
 		item.setPrice(15.22d);		
